@@ -1,19 +1,21 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { Component, effect, inject, PLATFORM_ID, signal } from '@angular/core';
+import { Component, effect, inject, PLATFORM_ID } from '@angular/core';
 import { ThemeService } from './services/theme.service';
 import { RouterOutlet } from '@angular/router';
+import { MainNavbar } from './components/main-navbar/main-navbar';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [MainNavbar],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
-  private readonly document = inject(DOCUMENT);
-  private readonly platformId = inject(PLATFORM_ID);
+  readonly document = inject(DOCUMENT);
+  readonly platformId = inject(PLATFORM_ID);
+  readonly themeService = inject(ThemeService);
 
-  constructor(private readonly themeService: ThemeService) {
+  constructor() {
     this.initTheme();
   }
 

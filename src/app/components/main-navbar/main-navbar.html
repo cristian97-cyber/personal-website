@@ -1,0 +1,40 @@
+<header class="sticky top-0 z-50 bg-card text-card-foreground">
+  <nav
+    class="flex items-center justify-between py-4 px-6 sm:px-10 lg:px-16"
+    aria-label="Navigazione principale"
+  >
+    <a routerLink="/home" class="logo text-2xl font-black leading-none" aria-label="Vai alla home">
+      CE
+    </a>
+
+    <div class="flex items-center gap-6 sm:gap-8">
+      @for (item of navbarItems; track item.label) {
+        <a
+          [routerLink]="item.link"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="text-sm py-1 px-3 rounded nav-link"
+        >
+          {{ item.label }}
+        </a>
+      }
+
+      <div class="h-8 w-px bg-primary-foreground/25" aria-hidden="true"></div>
+
+      <app-button
+        [type]="ButtonTypeEnum.Button"
+        [variant]="ButtonVariantEnum.Ghost"
+        [size]="ButtonSizeEnum.Md"
+        extraClass="theme-toggle"
+        (click$)="toggleTheme()"
+        [ariaLabel]="themeService.isDark() ? 'Attiva tema chiaro' : 'Attiva tema scuro'"
+      >
+        @if (themeService.isDark()) {
+          <svg lucideSun class="size-6 text-yellow-400" aria-hidden="true"></svg>
+        } @else {
+          <svg lucideMoon class="size-6" aria-hidden="true"></svg>
+        }
+      </app-button>
+    </div>
+  </nav>
+</header>
