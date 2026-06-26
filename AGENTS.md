@@ -27,6 +27,10 @@ The current brand colors use a vivid blue `primary` and an indigo-blue `secondar
 
 Use Tailwind utilities first for layout, spacing, color, radius, and state styling. Use the generic `AppButton` component for all button elements so variants, focus states, disabled states, and sizes stay consistent. Use the `ghost` variant for buttons that should look like simple transparent links or icon controls.
 
+The main navbar is responsive at the Tailwind `md` breakpoint. Keep desktop navigation inline with `hidden md:flex`, and use a compact mobile layout below `md` with theme toggle plus hamburger button. The mobile menu should render as a dropdown under the navbar, use full-width tappable links, and close when a navigation link is clicked. Reuse the theme toggle through an Angular `ng-template` and `NgTemplateOutlet` instead of duplicating its markup.
+
+All user-facing accessibility labels should be in English. For example, use labels such as `Main navigation`, `Go to home`, `Open navigation menu`, `Close navigation menu`, `Switch to light theme`, and `Switch to dark theme`.
+
 Use `@lucide/angular` standalone icons. Lucide icons in this package use SVG attribute selectors such as `<svg lucideMoon></svg>` and `<svg lucideSun></svg>`, not custom element tags like `<lucide-moon>`. Keep layout responsive and avoid adding large design abstractions until repeated patterns appear.
 
 ## Testing Guidelines
