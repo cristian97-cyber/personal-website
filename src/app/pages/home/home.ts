@@ -65,9 +65,25 @@ export class Home implements OnInit {
   private populateTaglineTexts() {
     this.taglineTexts = [
       'Building high-performance, scalable software solutions',
-      '3+ years of experience in implementing high-complex systems',
+      `${this.getYearsOfExperience()}+ years of experience in implementing high-complex systems`,
       'Passionate about new technologies and clean code',
     ];
+  }
+
+  private getYearsOfExperience() {
+    const today = new Date();
+    const start = new Date('2022-09-05');
+    let years = today.getFullYear() - start.getFullYear();
+
+    const currentMonth = today.getMonth();
+    const startMonth = start.getMonth();
+    const currentDay = today.getDate();
+    const startDay = start.getDate();
+    if (currentMonth < startMonth || (currentMonth === startMonth && currentDay < startDay)) {
+      years--;
+    }
+
+    return years;
   }
 
   protected readonly ButtonTypeEnum = ButtonTypeEnum;
