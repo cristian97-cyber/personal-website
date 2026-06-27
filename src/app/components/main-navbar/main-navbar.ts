@@ -10,6 +10,7 @@ import { ButtonSizeEnum } from '../../enum/button-size.enum';
 import { AppUrlEnum } from '../../enum/app-url.enum';
 import { NgTemplateOutlet } from '@angular/common';
 import { LayoutService } from '../../services/layout.service';
+import { AppLogo } from '../app-logo/app-logo';
 
 @Component({
   selector: 'app-main-navbar',
@@ -22,6 +23,7 @@ import { LayoutService } from '../../services/layout.service';
     LucideX,
     AppButton,
     NgTemplateOutlet,
+    AppLogo,
   ],
   templateUrl: './main-navbar.html',
   styleUrl: './main-navbar.scss',

@@ -4,10 +4,11 @@ import { ThemeService } from './services/theme.service';
 import { RouterOutlet } from '@angular/router';
 import { MainNavbar } from './components/main-navbar/main-navbar';
 import { LayoutService } from './services/layout.service';
+import { Footer } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [MainNavbar, RouterOutlet],
+  imports: [MainNavbar, RouterOutlet, Footer],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
