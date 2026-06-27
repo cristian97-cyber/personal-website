@@ -1,0 +1,15 @@
+<div class="technology-carousel" aria-label="Main technologies">
+  <div class="technology-carousel-track">
+    <div class="technology-carousel-group">
+      @for (technology of technologies; track technology.name) {
+        <app-technology-icon [technology]="technology"></app-technology-icon>
+      }
+    </div>
+
+    <div class="technology-carousel-group" aria-hidden="true">
+      @for (technology of technologies; track technology.name) {
+        <app-technology-icon [technology]="technology"></app-technology-icon>
+      }
+    </div>
+  </div>
+</div>

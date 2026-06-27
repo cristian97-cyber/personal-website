@@ -37,11 +37,7 @@
         class="tech-carousel-hook mb-10 w-full max-w-4xl overflow-hidden"
         aria-label="Main technologies"
       >
-        <div class="flex flex-wrap justify-center gap-4 md:justify-start">
-          @for (technology of technologies; track technology.name) {
-            <app-technology-icon [technology]="technology"></app-technology-icon>
-          }
-        </div>
+        <app-technology-carousel [technologies]="technologies"></app-technology-carousel>
       </div>
 
       <div

@@ -8,13 +8,13 @@ import { LayoutService } from '../../services/layout.service';
 import { NgStyle } from '@angular/common';
 import { TechnologyModel } from '../../model/technology.model';
 import technologiesData from '../../data/technologies.json';
-import { TechnologyIcon } from '../../components/technology-icon/technology-icon';
 import { LinkModel } from '../../model/link.model';
 import linksData from '../../data/links.json';
 import { LinkIcon } from '../../components/link-icon/link-icon';
 import { HeightBreakpointsConst } from '../../const/height-breakpoints.const';
 import { AppUrlEnum } from '../../enum/app-url.enum';
 import { TypewriterText } from '../../components/typewriter-text/typewriter-text';
+import { TechnologyCarousel } from '../../components/technology-carousel/technology-carousel';
 
 @Component({
   selector: 'app-home',
@@ -23,9 +23,9 @@ import { TypewriterText } from '../../components/typewriter-text/typewriter-text
     LucideArrowRight,
     LucideFileDown,
     NgStyle,
-    TechnologyIcon,
     LinkIcon,
     TypewriterText,
+    TechnologyCarousel,
   ],
   templateUrl: 'home.html',
   styleUrl: './home.scss',
