@@ -1,5 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { Component, DestroyRef, effect, inject, PLATFORM_ID } from '@angular/core';
+import { Component, DestroyRef, effect, inject, NgZone, PLATFORM_ID } from '@angular/core';
 import { ThemeService } from './services/theme.service';
 import { RouterOutlet } from '@angular/router';
 import { MainNavbar } from './components/main-navbar/main-navbar';
@@ -18,6 +18,7 @@ export class App {
   readonly themeService = inject(ThemeService);
   readonly layoutService = inject(LayoutService);
   readonly destroyRef = inject(DestroyRef);
+  readonly ngZone = inject(NgZone);
 
   constructor() {
     this.initTheme();
@@ -44,15 +45,33 @@ export class App {
 
   private initWindowHeight(): void {
     if (isPlatformBrowser(this.platformId)) {
+      let resizeTimeoutId: ReturnType<typeof setTimeout> | null = null;
+
       const setWindowHeight = () => {
         this.layoutService.setWindowHeight(window.innerHeight);
       };
 
+      const debounceWindowHeight = () => {
+        if (resizeTimeoutId) {
+          clearTimeout(resizeTimeoutId);
+        }
+
+        resizeTimeoutId = setTimeout(() => {
+          this.ngZone.run(setWindowHeight);
+        }, 150);
+      };
+
       setWindowHeight();
-      window.addEventListener('resize', setWindowHeight);
+      this.ngZone.runOutsideAngular(() => {
+        window.addEventListener('resize', debounceWindowHeight);
+      });
 
       this.destroyRef.onDestroy(() => {
-        window.removeEventListener('resize', setWindowHeight);
+        window.removeEventListener('resize', debounceWindowHeight);
+
+        if (resizeTimeoutId) {
+          clearTimeout(resizeTimeoutId);
+        }
       });
     }
   }

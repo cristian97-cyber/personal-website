@@ -1,5 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { LucideArrowRight, LucideFileDown, LucideMail } from '@lucide/angular';
+import { Component, computed, inject, OnInit } from '@angular/core';
+import { LucideArrowRight, LucideFileDown } from '@lucide/angular';
 import { AppButton } from '../../components/app-button/app-button';
 import { ButtonSizeEnum } from '../../enum/button-size.enum';
 import { ButtonTypeEnum } from '../../enum/button-type.enum';
@@ -36,17 +36,17 @@ export class Home implements OnInit {
   links: LinkModel[] = [];
   taglineTexts: string[] = [];
 
-  get pageHeight() {
+  readonly pageHeight = computed(() => {
     if (this.layoutService.windowHeight() >= HeightBreakpointsConst.Lg) {
       return `calc(100vh - ${this.layoutService.mainNavbarHeight()}px)`;
-    } else {
-      return 'auto';
     }
-  }
 
-  get pageMinHeight() {
+    return 'auto';
+  });
+
+  readonly pageMinHeight = computed(() => {
     return `calc(100vh - ${this.layoutService.mainNavbarHeight()}px)`;
-  }
+  });
 
   ngOnInit() {
     this.populateTechnologies();
