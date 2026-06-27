@@ -13,7 +13,7 @@ This is an Angular 22 personal website. Application code lives in `src/app`, wit
 - `npx tsc -p tsconfig.app.json --noEmit`: type-checks application code.
 - `npx tsc -p tsconfig.spec.json --noEmit`: type-checks tests.
 
-Use Node `24.15.0+` or another version accepted by Angular 22. This repo was verified with Node `24.18.0`.
+Use Node `24.15.0+` or another version accepted by Angular 22. This repo was verified with Node `24.18.0`; `v24.12.0` is too old for the Angular CLI used here and prevents `npm run build` from starting.
 
 ## Coding Style & Naming Conventions
 
@@ -32,6 +32,12 @@ The main navbar is responsive at the Tailwind `md` breakpoint. Keep desktop navi
 All user-facing accessibility labels should be in English. For example, use labels such as `Main navigation`, `Go to home`, `Open navigation menu`, `Close navigation menu`, `Switch to light theme`, and `Switch to dark theme`.
 
 Use `@lucide/angular` standalone icons. Lucide icons in this package use SVG attribute selectors such as `<svg lucideMoon></svg>` and `<svg lucideSun></svg>`, not custom element tags like `<lucide-moon>`. Keep layout responsive and avoid adding large design abstractions until repeated patterns appear.
+
+## Brand Assets & Favicon
+
+The visible logo is the `AppLogo` component in `src/app/components/app-logo/`, currently a `CE` text mark with the primary-to-secondary gradient. Keep favicon assets visually aligned with this component whenever the logo text, weight, gradient, or brand colors change.
+
+Favicons live in `public/`. `public/favicon.svg` is the editable source of truth for the current favicon design, and `public/favicon.ico` should be regenerated from that SVG for legacy/browser fallback. `src/index.html` should keep both links: `favicon.ico` with `sizes="any"` and `favicon.svg` with `type="image/svg+xml"`. Because favicon tabs render very small, keep the monogram visually large within the square canvas and verify legibility at 16x16 and 32x32.
 
 ## Testing Guidelines
 
