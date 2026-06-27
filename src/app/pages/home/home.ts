@@ -11,7 +11,6 @@ import technologiesData from '../../data/technologies.json';
 import { LinkModel } from '../../model/link.model';
 import linksData from '../../data/links.json';
 import { LinkIcon } from '../../components/link-icon/link-icon';
-import { HeightBreakpointsConst } from '../../const/height-breakpoints.const';
 import { AppUrlEnum } from '../../enum/app-url.enum';
 import { TypewriterText } from '../../components/typewriter-text/typewriter-text';
 import { TechnologyCarousel } from '../../components/technology-carousel/technology-carousel';
@@ -35,14 +34,6 @@ export class Home implements OnInit {
   technologies: TechnologyModel[] = [];
   links: LinkModel[] = [];
   taglineTexts: string[] = [];
-
-  readonly pageHeight = computed(() => {
-    if (this.layoutService.windowHeight() >= HeightBreakpointsConst.Lg) {
-      return `calc(100vh - ${this.layoutService.mainNavbarHeight()}px)`;
-    }
-
-    return 'auto';
-  });
 
   readonly pageMinHeight = computed(() => {
     return `calc(100vh - ${this.layoutService.mainNavbarHeight()}px)`;
