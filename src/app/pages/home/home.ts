@@ -14,10 +14,19 @@ import linksData from '../../data/links.json';
 import { LinkIcon } from '../../components/link-icon/link-icon';
 import { HeightBreakpointsConst } from '../../const/height-breakpoints.const';
 import { AppUrlEnum } from '../../enum/app-url.enum';
+import { TypewriterText } from '../../components/typewriter-text/typewriter-text';
 
 @Component({
   selector: 'app-home',
-  imports: [AppButton, LucideArrowRight, LucideFileDown, NgStyle, TechnologyIcon, LinkIcon],
+  imports: [
+    AppButton,
+    LucideArrowRight,
+    LucideFileDown,
+    NgStyle,
+    TechnologyIcon,
+    LinkIcon,
+    TypewriterText,
+  ],
   templateUrl: 'home.html',
   styleUrl: './home.scss',
 })
@@ -25,6 +34,7 @@ export class Home implements OnInit {
   layoutService = inject(LayoutService);
   technologies: TechnologyModel[] = [];
   links: LinkModel[] = [];
+  taglineTexts: string[] = [];
 
   get pageHeight() {
     if (this.layoutService.windowHeight() >= HeightBreakpointsConst.Lg) {
@@ -41,6 +51,7 @@ export class Home implements OnInit {
   ngOnInit() {
     this.populateTechnologies();
     this.populateLinks();
+    this.populateTaglineTexts();
   }
 
   private populateTechnologies() {
@@ -49,6 +60,14 @@ export class Home implements OnInit {
 
   private populateLinks() {
     this.links = linksData;
+  }
+
+  private populateTaglineTexts() {
+    this.taglineTexts = [
+      'Building high-performance, scalable software solutions',
+      '3+ years of experience in implementing high-complex systems',
+      'Passionate about new technologies and clean code',
+    ];
   }
 
   protected readonly ButtonTypeEnum = ButtonTypeEnum;
