@@ -1,0 +1,17 @@
+[
+  {
+    "name": "LinkedIn",
+    "image": "linkedin.svg",
+    "url": "https://www.linkedin.com/in/cristian-esposito-36b3a118a/"
+  },
+  {
+    "name": "GitHub",
+    "image": "github.svg",
+    "url": "https://github.com/cristian97-cyber"
+  },
+  {
+    "name": "Email",
+    "image": "envelope-at.svg",
+    "url": "mailto:cristianesposito961@gmail.com"
+  }
+]

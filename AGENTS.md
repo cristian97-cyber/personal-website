@@ -35,7 +35,7 @@ Use `@lucide/angular` standalone icons. Lucide icons in this package use SVG att
 
 ## Testing Guidelines
 
-Tests use the Angular unit test setup with Vitest support. Place specs next to the code they cover using the `*.spec.ts` suffix. Add tests when explicitly requested or when a change introduces meaningful state logic, routing-sensitive behavior, or service behavior. Run `npm test` and both TypeScript checks before opening a PR when tests are in scope.
+Tests are not important for this project and should be skipped by default. Do not add, update, or run tests unless the user explicitly asks for them. If tests are explicitly requested, use the Angular unit test setup with Vitest support, place specs next to the code they cover using the `*.spec.ts` suffix, and run only the checks requested by the user.
 
 ## Commit & Pull Request Guidelines
 

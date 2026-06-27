@@ -1,0 +1,55 @@
+.profession-gradient {
+  background: linear-gradient(
+    135deg,
+    color-mix(in hsl, hsl(var(--primary)) 85%, hsl(var(--foreground))),
+    color-mix(in hsl, hsl(var(--secondary)) 85%, hsl(var(--foreground)))
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+.home-cta {
+  min-height: 3.5rem;
+  padding-inline: 1.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.hero-image {
+  filter: drop-shadow(0 2rem 3rem hsl(var(--primary) / 0.14));
+}
+
+.home-outline {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card) / 0.72);
+  color: hsl(var(--card-foreground));
+  box-shadow: 0 0.75rem 2rem hsl(var(--foreground) / 0.05);
+
+  &:hover {
+    border-color: hsl(var(--primary) / 0.45);
+    background: hsl(var(--primary) / 0.08);
+  }
+}
+
+.social-control {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card) / 0.72);
+  color: hsl(var(--muted-foreground));
+
+  &:hover {
+    border-color: hsl(var(--primary) / 0.45);
+    background: hsl(var(--primary) / 0.08);
+    color: hsl(var(--primary));
+  }
+}
+
+.social-mark {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.social-mark-github {
+  font-size: 0.75rem;
+  letter-spacing: 0;
+}

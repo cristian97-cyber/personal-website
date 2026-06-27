@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Angular",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg",
+    "type": "front-end"
+  },
+  {
+    "name": "React",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    "type": "front-end"
+  },
+  {
+    "name": "Spring",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg",
+    "type": "back-end"
+  }
+]

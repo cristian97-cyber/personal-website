@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LucideMenu, LucideMoon, LucideSun, LucideX } from '@lucide/angular';
 import { ThemeService } from '../../services/theme.service';
@@ -9,6 +9,7 @@ import { ButtonVariantEnum } from '../../enum/button-variant.enum';
 import { ButtonSizeEnum } from '../../enum/button-size.enum';
 import { AppUrlEnum } from '../../enum/app-url.enum';
 import { NgTemplateOutlet } from '@angular/common';
+import { LayoutService } from '../../services/layout.service';
 
 @Component({
   selector: 'app-main-navbar',
@@ -25,13 +26,20 @@ import { NgTemplateOutlet } from '@angular/common';
   templateUrl: './main-navbar.html',
   styleUrl: './main-navbar.scss',
 })
-export class MainNavbar implements OnInit {
+export class MainNavbar implements OnInit, AfterViewInit {
+  @ViewChild('nav') nav!: ElementRef<HTMLElement>;
+
   themeService = inject(ThemeService);
+  layoutService = inject(LayoutService);
   navbarItems: NavbarItemModel[] = [];
   isMobileMenuOpen = false;
 
   ngOnInit() {
     this.populateNavbarItems();
+  }
+
+  ngAfterViewInit() {
+    this.layoutService.setMainNavbarHeight(this.nav.nativeElement.offsetHeight);
   }
 
   toggleTheme(): void {

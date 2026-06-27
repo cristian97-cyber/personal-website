@@ -1,9 +1,30 @@
-<button
-  [type]="type"
-  [disabled]="disabled"
-  [class]="buttonClass"
-  [attr.aria-label]="ariaLabel || null"
-  (click)="onClick($event)"
->
+@if (routerLink) {
+  <a [routerLink]="routerLink" [class]="buttonClass" [attr.aria-label]="ariaLabel || null">
+    <ng-container [ngTemplateOutlet]="buttonContent"></ng-container>
+  </a>
+} @else if (href) {
+  <a
+    [href]="href"
+    [attr.download]="download || null"
+    [attr.target]="target || null"
+    [attr.rel]="rel || null"
+    [class]="buttonClass"
+    [attr.aria-label]="ariaLabel || null"
+  >
+    <ng-container [ngTemplateOutlet]="buttonContent"></ng-container>
+  </a>
+} @else {
+  <button
+    [type]="type"
+    [disabled]="disabled"
+    [class]="buttonClass"
+    [attr.aria-label]="ariaLabel || null"
+    (click)="onClick($event)"
+  >
+    <ng-container [ngTemplateOutlet]="buttonContent"></ng-container>
+  </button>
+}
+
+<ng-template #buttonContent>
   <ng-content />
-</button>
+</ng-template>

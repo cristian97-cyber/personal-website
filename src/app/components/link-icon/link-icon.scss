@@ -1,0 +1,19 @@
+.link-card {
+  box-shadow: 0 0.5rem 1.25rem hsl(var(--foreground) / 0.04);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: hsl(var(--primary) / 0.35);
+    box-shadow: 0 0.9rem 2rem hsl(var(--primary) / 0.22);
+  }
+
+  &:hover .link-card-icon {
+    transform: scale(1.12);
+  }
+}
+
+.link-card-icon {
+  transition: transform 0.2s ease;
+}

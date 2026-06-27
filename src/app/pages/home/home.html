@@ -1,1 +1,101 @@
-<div>Home</div>
+<main
+  class="px-6 py-16 sm:px-10 lg:px-16 lg:py-18"
+  [ngStyle]="{
+    height: pageHeight,
+    minHeight: pageMinHeight,
+  }"
+>
+  <section
+    class="mx-auto grid h-full w-full max-w-6xl items-center gap-12 text-center md:text-left lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.85fr)]"
+    aria-labelledby="home-heading"
+  >
+    <div class="flex flex-col items-center md:items-start">
+      <div class="mb-16 max-w-4xl">
+        <p class="mb-5 text-lg font-semibold text-muted-foreground sm:text-xl">Hello, I'm</p>
+
+        <h1
+          id="home-heading"
+          class="text-5xl font-black leading-none tracking-normal text-foreground sm:text-6xl lg:text-7xl"
+        >
+          Cristian Esposito
+        </h1>
+
+        <p
+          class="profession-gradient mt-4 text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl"
+        >
+          Software Engineer
+        </p>
+
+        <p
+          class="tagline-hook mt-5 max-w-3xl text-xl font-light leading-relaxed text-muted-foreground sm:text-2xl"
+        >
+          Building high-performance, scalable software solutions
+        </p>
+      </div>
+
+      <div
+        class="tech-carousel-hook mb-10 w-full max-w-4xl overflow-hidden"
+        aria-label="Main technologies"
+      >
+        <div class="flex flex-wrap justify-center gap-4 md:justify-start">
+          @for (technology of technologies; track technology.name) {
+            <app-technology-icon [technology]="technology"></app-technology-icon>
+          }
+        </div>
+      </div>
+
+      <div
+        class="mb-8 flex w-full max-w-4xl flex-col gap-4 sm:flex-row sm:flex-wrap md:justify-start"
+      >
+        <app-button
+          [type]="ButtonTypeEnum.Button"
+          [variant]="ButtonVariantEnum.Primary"
+          [size]="ButtonSizeEnum.Xl"
+          extraClass="home-cta w-full sm:w-auto"
+          ariaLabel="View skills"
+          [routerLink]="['/', AppUrlEnum.Skills]"
+        >
+          My Skills
+          <svg lucideArrowRight class="size-4" aria-hidden="true"></svg>
+        </app-button>
+
+        <app-button
+          [type]="ButtonTypeEnum.Button"
+          [variant]="ButtonVariantEnum.Outlined"
+          [size]="ButtonSizeEnum.Xl"
+          extraClass="home-cta home-outline w-full sm:w-auto"
+          ariaLabel="Contact me"
+          [routerLink]="['/', AppUrlEnum.Contact]"
+        >
+          Contact Me
+        </app-button>
+
+        <app-button
+          [type]="ButtonTypeEnum.Button"
+          [variant]="ButtonVariantEnum.Outlined"
+          [size]="ButtonSizeEnum.Xl"
+          extraClass="home-cta home-outline w-full sm:w-auto"
+          ariaLabel="Download resume"
+          href="documents/cristian-esposito-cv.pdf"
+          download="Cristian-Esposito-CV.pdf"
+        >
+          <svg lucideFileDown class="size-5" aria-hidden="true"></svg>
+          Resume
+        </app-button>
+      </div>
+
+      <div
+        class="flex w-full max-w-4xl justify-center gap-3 md:justify-start"
+        aria-label="Useful links"
+      >
+        @for (link of links; track link.name) {
+          <app-link-icon [link]="link"></app-link-icon>
+        }
+      </div>
+    </div>
+
+    <div class="hidden justify-center lg:flex" aria-hidden="true">
+      <img class="hero-image w-full max-w-md xl:max-w-lg" src="svg/hero-image.svg" alt="" />
+    </div>
+  </section>
+</main>
