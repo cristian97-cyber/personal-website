@@ -1,0 +1,9 @@
+.name-gradient {
+  background: linear-gradient(
+    135deg,
+    color-mix(in hsl, hsl(var(--primary)) 90%, hsl(var(--foreground))),
+    color-mix(in hsl, hsl(var(--secondary)) 90%, hsl(var(--foreground)))
+  );
+  background-clip: text;
+  color: transparent;
+}

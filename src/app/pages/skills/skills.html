@@ -1,0 +1,73 @@
+<main
+  class="px-6 py-16 sm:px-10 lg:px-16 lg:py-18"
+  [ngStyle]="{
+    minHeight: pageMinHeight(),
+  }"
+>
+  <section class="mx-auto w-full max-w-6xl" aria-labelledby="skills-heading">
+    <div class="flex flex-col items-center bg-">
+      <app-chip>About me</app-chip>
+
+      <h1
+        id="skills-heading"
+        class="mt-6 text-3xl font-black leading-tight tracking-normal text-foreground sm:text-4xl lg:text-5xl text-center"
+      >
+        I'm <span class="name-gradient">Cristian Esposito</span>
+      </h1>
+
+      <p
+        class="mt-6 max-w-3xl text-md font-light leading-8 text-muted-foreground sm:text-lg text-center"
+      >
+        Full-Stack Software Engineer with strong expertise in both front-end and back-end
+        development, contributing to the design and delivery of robust, scalable, and
+        high-performing software solutions.
+      </p>
+    </div>
+
+    <app-card
+      title="Technical Expertise"
+      subtitle="3+ years of professional experience"
+      icon="code-slash"
+      extraClass="mt-12"
+    >
+      Full-Stack Software Engineer with 3+ years of professional experience in the the end-to-end
+      design, development, and evolution of high-performance, scalable web applications, combining a
+      strong focus on intuitive user interfaces with robust application logic and reliable
+      integration with complex enterprise systems. I have experience working with modern front-end
+      ecosystems and microservices-based architectures, paying particular attention to clean code,
+      component reusability, testing, performance optimization, and long-term maintainability.
+    </app-card>
+
+    <div class="mt-15 grid grid-cols-1 sm:grid-cols-2 gap-6">
+      @for (section of technologiesSections; track section.type) {
+        <app-card
+          [title]="section.name"
+          [icon]="section.icon"
+          [iconExtraClass]="'h-9 w-9 ' + section.bgClass"
+          iconImgExtraClass="w-5"
+          titleExtraClass="text-lg"
+          extraClass="h-full"
+        >
+          <div class="flex flex-wrap gap-2">
+            @for (technology of section.technologies; track technology.name) {
+              <app-technology-icon-text [technology]="technology" />
+            }
+          </div>
+        </app-card>
+      }
+    </div>
+    <div class="mt-15 flex justify-center items-center">
+      <app-button
+        [type]="ButtonTypeEnum.Button"
+        [variant]="ButtonVariantEnum.Gradient"
+        [size]="ButtonSizeEnum.Xl"
+        ariaLabel="Download resume"
+        href="documents/cristian-esposito-cv.pdf"
+        download="Cristian-Esposito-CV.pdf"
+      >
+        <svg lucideDownload class="size-5" aria-hidden="true"></svg>
+        Download Resume
+      </app-button>
+    </div>
+  </section>
+</main>
