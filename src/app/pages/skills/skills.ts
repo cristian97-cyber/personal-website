@@ -10,19 +10,11 @@ import { AppButton } from '../../components/app-button/app-button';
 import { ButtonTypeEnum } from '../../enum/button-type.enum';
 import { ButtonVariantEnum } from '../../enum/button-variant.enum';
 import { ButtonSizeEnum } from '../../enum/button-size.enum';
-import { LucideDownload, LucideFileDown } from '@lucide/angular';
+import { LucideDownload } from '@lucide/angular';
 
 @Component({
   selector: 'app-skills',
-  imports: [
-    NgStyle,
-    AppChip,
-    AppCard,
-    TechnologyIconText,
-    AppButton,
-    LucideFileDown,
-    LucideDownload,
-  ],
+  imports: [NgStyle, AppChip, AppCard, TechnologyIconText, AppButton, LucideDownload],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
 })

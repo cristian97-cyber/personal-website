@@ -1,9 +1,8 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { Component, DestroyRef, effect, inject, NgZone, PLATFORM_ID } from '@angular/core';
+import { Component, effect, inject, PLATFORM_ID } from '@angular/core';
 import { ThemeService } from './services/theme.service';
 import { RouterOutlet } from '@angular/router';
 import { MainNavbar } from './components/main-navbar/main-navbar';
-import { LayoutService } from './services/layout.service';
 import { Footer } from './components/footer/footer';
 
 @Component({
