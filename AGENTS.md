@@ -2,7 +2,9 @@
 
 ## Project Structure & Module Organization
 
-This is an Angular 22 personal website. Application code lives in `src/app`, with the root shell in `app.ts`, `app.html`, and `app.scss`. Route definitions are in `src/app/app.routes.ts`; feature pages should live under `src/app/pages/<page-name>/`. Reusable UI components belong in `src/app/components/`; the main navbar lives in `src/app/components/main-navbar/`, generic buttons live in `src/app/components/app-button/`, generic chips live in `src/app/components/app-chip/`, and generic cards live in `src/app/components/app-card/`. Shared application services belong in `src/app/services/`, with matching `*.spec.ts` tests beside the service when tests are requested. Global styles and Tailwind CSS tokens are in `src/styles.css`. Static assets belong in `public/`.
+This is an Angular 22 personal website. Application code lives in `src/app`, with the root shell in `app.ts`, `app.html`, and `app.scss`. Route definitions are in `src/app/app.routes.ts`; feature pages should live under `src/app/pages/<page-name>/`. Reusable UI components belong in `src/app/components/`; the main navbar lives in `src/app/components/main-navbar/`, generic buttons live in `src/app/components/app-button/`, generic chips live in `src/app/components/app-chip/`, generic cards live in `src/app/components/app-card/`, and work experience cards live in `src/app/components/experience-card/`. Shared application services belong in `src/app/services/`, with matching `*.spec.ts` tests beside the service when tests are requested. Global styles and Tailwind CSS tokens are in `src/styles.css`. Static assets belong in `public/`.
+
+Structured content data lives in `src/app/data/`, with matching models in `src/app/model/`. Work experience data lives in `src/app/data/work-experiences.json` and uses ISO date strings in JSON; `src/app/pages/experience/experience.ts` maps those strings to `Date` objects for the `WorkExperienceModel`.
 
 ## Build, Test, and Development Commands
 
@@ -29,7 +31,7 @@ The current brand colors use a vivid blue `primary` and an indigo-blue `secondar
 
 Use Tailwind utilities first for layout, spacing, color, radius, and state styling. Use the generic `AppButton` component for all button elements so variants, focus states, disabled states, and sizes stay consistent. Use the `ghost` variant for buttons that should look like simple transparent links or icon controls.
 
-Use the generic `AppChip` component for small label chips and the generic `AppCard` component for reusable content cards. `AppCard` supports projected body content plus title, subtitle, icon, card, icon background, icon wrapper, and icon image class inputs. When combining base Tailwind classes with externally supplied class inputs, use `twMerge` from `tailwind-merge` so consumer classes such as `h-*`, `w-*`, `rounded-*`, `p-*`, or `bg-*` can override defaults predictably.
+Use the generic `AppChip` component for small label chips and the generic `AppCard` component for reusable content cards. `AppChip` and `AppCard` use `twMerge` from `tailwind-merge`, so consumer classes such as `h-*`, `w-*`, `rounded-*`, `p-*`, `bg-*`, `border-*`, or `text-*` can override defaults predictably. `AppCard` supports projected body content plus title, subtitle, icon, card, icon background, icon wrapper, and icon image class inputs.
 
 Prefer Tailwind gradient utilities where they are expressive enough, for example `bg-linear-to-r from-sky-600 to-sky-400`. For precise gradients or CSS variable colors, use arbitrary values such as `bg-[linear-gradient(135deg,hsl(var(--primary)),hsl(var(--secondary)))]` or `bg-[linear-gradient(135deg,var(--color-sky-600),var(--color-sky-400))]`. Current soft icon gradient examples use adjacent Tailwind scales such as `sky-600` to `sky-400`, `fuchsia-600` to `fuchsia-400`, `orange-600` to `orange-400`, and `emerald-600` to `emerald-400`.
 
@@ -40,6 +42,12 @@ All user-facing accessibility labels should be in English. For example, use labe
 Use `@lucide/angular` standalone icons. Lucide icons in this package use SVG attribute selectors such as `<svg lucideMoon></svg>` and `<svg lucideSun></svg>`, not custom element tags like `<lucide-moon>`. Keep layout responsive and avoid adding large design abstractions until repeated patterns appear.
 
 Tailwind breakpoints currently use the defaults: `sm` is 640px, `md` is 768px, `lg` is 1024px, `xl` is 1280px, and `2xl` is 1536px. The navbar switches between mobile and desktop at `md`.
+
+The `/experience` page renders a responsive timeline. On mobile, the vertical line sits on the left and cards must start in the second grid column; on `md+`, the line is centered and cards alternate left/right. If wrapping `app-experience-card` for hover or animation effects, put grid positioning classes such as `col-start-2`, `md:col-start-1`, or `md:col-start-3` on the direct grid child wrapper, not only on the component host, otherwise the mobile layout breaks.
+
+`ExperienceCard` displays the work experience position, company, date range, employment typology, location, skills, and technologies. Keep typology values aligned with `WorkExperienceModel` (`full-time` and `part-time`); full-time chips use green styling and part-time chips use orange styling. Use `LucideBriefcase` for the card icon and `LucideMapPin` for location.
+
+The bottom CV download control on `/experience` is intentionally inline in the page rather than a reusable component. It links to `public/documents/cristian-esposito-cv.pdf`, shows `Download Full Resume` and `PDF Format`, uses a thick dashed border, and applies a subtle primary-colored hover background plus scale effect.
 
 ## Brand Assets & Favicon
 

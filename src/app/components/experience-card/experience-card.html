@@ -1,0 +1,61 @@
+<article
+  class="rounded-2xl border border-border bg-card/85 p-6 text-card-foreground shadow-xl shadow-foreground/5 backdrop-blur"
+>
+  <header class="flex flex-col gap-3 sm:flex-row sm:items-start">
+    <div
+      class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-[linear-gradient(135deg,hsl(var(--primary)),hsl(var(--secondary)))] text-primary-foreground shadow-lg shadow-primary/20"
+      aria-hidden="true"
+    >
+      <svg lucideBriefcase class="size-6"></svg>
+    </div>
+
+    <div class="min-w-0 flex-1">
+      <h2 class="text-xl font-bold leading-tight text-card-foreground">
+        {{ experience.position }}
+      </h2>
+
+      <p class="text-base font-semibold text-primary">
+        {{ experience.company }}
+      </p>
+
+      <p class="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+        <svg lucideMapPin class="size-4 shrink-0" aria-hidden="true"></svg>
+        {{ experience.location }}
+      </p>
+    </div>
+  </header>
+
+  <div class="mt-6 flex flex-wrap gap-2">
+    <app-chip extraClass="px-3 py-1 text-xs leading-none">
+      {{ experience.startDate | date: 'MMM yyyy' }} -
+      @if (experience.endDate) {
+        {{ experience.endDate | date: 'MMM yyyy' }}
+      } @else {
+        Present
+      }
+    </app-chip>
+
+    <app-chip [extraClass]="typologyClass">
+      {{ typologyLabel }}
+    </app-chip>
+  </div>
+
+  <ul class="mt-6 space-y-3 text-sm leading-6 text-muted-foreground">
+    @for (skill of experience.skills; track skill) {
+      <li class="flex gap-3">
+        <span class="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true"></span>
+        <span>{{ skill }}</span>
+      </li>
+    }
+  </ul>
+
+  <div class="mt-6 flex flex-wrap gap-2" aria-label="Technologies used">
+    @for (technology of experience.technologies; track technology) {
+      <app-chip
+        extraClass="border-border bg-background/70 px-3 py-1 text-xs font-medium text-card-foreground"
+      >
+        {{ technology }}
+      </app-chip>
+    }
+  </div>
+</article>

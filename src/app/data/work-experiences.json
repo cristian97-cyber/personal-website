@@ -1,0 +1,44 @@
+[
+  {
+    "id": 2,
+    "position": "Software Engineer",
+    "company": "Deloitte",
+    "startDate": "2023-03-20",
+    "endDate": null,
+    "typology": "full-time",
+    "location": "Italy",
+    "skills": [
+      "Design and development of scalable web applications, with a strong focus on fintech solutions and business-critical digital products",
+      "Front-end development with JavaScript, TypeScript, and Angular, building responsive, maintainable, and user-focused interfaces",
+      "Back-end development with Java, Spring Boot, and SQL/NoSQL databases, implementing robust APIs, data models, and integration logic",
+      "Cross-functional team collaboration in DevOps-oriented environments, contributing to continuous delivery, code quality, and shared ownership"
+    ],
+    "technologies": [
+      "Angular",
+      "Spring Boot",
+      "JavaScript",
+      "TypeScript",
+      "Java",
+      "MySQL",
+      "MongoDB",
+      "Jenkins",
+      "Jira",
+      "Claude Code"
+    ]
+  },
+  {
+    "id": 1,
+    "position": "Software Engineer",
+    "company": "NoonTalents",
+    "startDate": "2022-09-05",
+    "endDate": "2023-02-28",
+    "typology": "full-time",
+    "location": "Italy",
+    "skills": [
+      "Development of user interfaces with JavaScript, TypeScript, and React, focusing on usability, responsiveness, and maintainable component-based architectures",
+      "Implementation of REST APIs with C#, .NET, and SQL databases, supporting reliable data access, business logic, and application integrations",
+      "Collaboration within Agile teams, participating in daily stand-up meetings and managing tasks, priorities, and delivery workflows through Jira"
+    ],
+    "technologies": ["React", ".NET", "JavaScript", "TypeScript", "C#", "MySQL", "Jira"]
+  }
+]

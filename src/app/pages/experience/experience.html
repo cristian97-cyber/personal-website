@@ -1,0 +1,86 @@
+<main
+  class="px-4 py-12 sm:px-10 lg:px-16 lg:py-18"
+  [ngStyle]="{
+    minHeight: pageMinHeight(),
+  }"
+>
+  <section class="mx-auto w-full max-w-6xl" aria-labelledby="experience-heading">
+    <div class="flex flex-col items-center">
+      <app-chip>Career Path</app-chip>
+
+      <h1
+        id="experience-heading"
+        class="mt-4 text-center text-3xl font-black leading-tight tracking-normal text-foreground sm:text-4xl lg:text-5xl"
+      >
+        Work <span class="text-gradient">Experience</span>
+      </h1>
+
+      <p
+        class="mt-4 max-w-3xl text-center text-md font-light leading-8 text-muted-foreground sm:text-lg"
+      >
+        My career path as a software engineer
+      </p>
+    </div>
+
+    <div class="relative mx-auto mt-16 max-w-5xl md:mt-20">
+      <div
+        class="absolute bottom-28 left-4 top-0 w-px bg-linear-to-b from-primary via-secondary to-primary/20 md:left-1/2 md:-translate-x-1/2"
+        aria-hidden="true"
+      ></div>
+
+      <div class="space-y-10 md:space-y-4">
+        @for (experience of experiences; track experience.id; let isOdd = $odd) {
+          <div
+            class="relative grid grid-cols-[2rem_minmax(0,1fr)] gap-6 md:grid-cols-[minmax(0,1fr)_4rem_minmax(0,1fr)] md:gap-0"
+          >
+            <div
+              class="absolute left-4 top-8 z-10 size-4 -translate-x-1/2 rounded-full border-4 border-background bg-linear-to-br from-primary to-secondary shadow-lg shadow-primary/25 md:left-1/2"
+              aria-hidden="true"
+            ></div>
+
+            @if (isOdd) {
+              <div class="hidden md:block"></div>
+              <div class="hidden md:block"></div>
+              <div class="animation-up col-start-2 md:col-start-3">
+                <app-experience-card class="block" [experience]="experience" />
+              </div>
+            } @else {
+              <div class="animation-up col-start-2 md:col-start-1">
+                <app-experience-card class="block" [experience]="experience" />
+              </div>
+              <div class="hidden md:block"></div>
+              <div class="hidden md:block"></div>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="relative mt-14 flex justify-center md:mt-16">
+        <div
+          class="absolute left-4 top-1/2 z-10 size-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-background bg-card shadow-md md:left-1/2"
+          aria-hidden="true"
+        ></div>
+
+        <a
+          class="resume-download-link relative z-20"
+          href="documents/cristian-esposito-cv.pdf"
+          download="Cristian-Esposito-CV.pdf"
+          aria-label="Download full resume"
+        >
+          <span class="resume-download-icon" aria-hidden="true">
+            <svg lucideDownload class="size-5"></svg>
+          </span>
+
+          <span class="flex flex-col text-left">
+            <span class="text-base font-bold leading-tight text-card-foreground sm:text-lg">
+              Download Full Resume
+            </span>
+            <span class="mt-1 text-sm font-medium leading-none text-muted-foreground">
+              PDF Format
+            </span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
