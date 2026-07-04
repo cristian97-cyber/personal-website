@@ -1,59 +1,148 @@
-# PersonalWebsite
+# Cristian Esposito - Personal Website
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.4.
+My personal website and portfolio, available at:
 
-## Development server
+https://cristianesposito.dev/
 
-To start a local development server, run:
+The project presents a professional profile, technical skills, work experience, education, and contact channels in an Angular single-page application with client-side routing, light/dark theme support, and content managed through local JSON files.
 
-```bash
-ng serve
+## Content
+
+- **Home**: personal introduction, dynamic tagline, main links, calls to action, and a technology carousel.
+- **Skills**: skills organized by area, including Front-End, Back-End, languages, tools, and DevOps.
+- **Experience**: responsive work experience timeline with role, company, period, employment type, location, skills, and technologies.
+- **Education**: education history with selectable detail panels.
+- **Contact**: contact information, location, professional availability, and external links.
+
+## Architecture
+
+The application is built with Angular 22 using standalone components and route-level lazy loading.
+
+```text
+src/app/
+  app.ts                      Application root shell
+  app.html                    Main layout with navbar, router outlet, and footer
+  app.config.ts               Global providers and router configuration
+  app.routes.ts               Client-side routes and lazy-loaded pages
+  components/                 Reusable components
+  data/                       Structured JSON content
+  enum/                       Shared enumerations
+  model/                      TypeScript models for application data
+  pages/                      Main website pages
+  services/                   Shared state and services
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The main routes are:
 
-## Code scaffolding
+- `/home`
+- `/skills`
+- `/experience`
+- `/education`
+- `/contact`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+The empty route redirects to `/home`. The router uses `withInMemoryScrolling` with scroll position restoration enabled.
+
+## Technical Components
+
+### Framework and Runtime
+
+- Angular `22`
+- TypeScript `~6.0`
+- RxJS `~7.8`
+- Node.js `>=24.15.0`
+- npm `11.16.0`
+
+### UI and Styling
+
+- Tailwind CSS v4 configured through `@tailwindcss/postcss`.
+- Global design tokens in `src/styles.css` through HSL variables and `@theme inline`.
+- Light/dark theme controlled by the `dark` class on the `html` element.
+- Icons provided by `@lucide/angular`.
+- Reusable UI components:
+  - `AppButton` for consistent buttons and links.
+  - `AppChip` for labels and tags.
+  - `AppCard` for content cards.
+  - `MainNavbar` for desktop/mobile navigation and theme switching.
+  - `AppLogo` for the brand monogram.
+  - `ExperienceCard`, `EducationCard`, `EducationDetails`, `TechnologyCarousel`, `TechnologyIcon`, `TechnologyIconText`, `LinkIcon`, and `Footer` for portfolio-specific sections.
+
+### State and Services
+
+- `ThemeService` stores theme state with Angular signals, exposes a read-only signal, and provides explicit methods to set or toggle the theme.
+- `LayoutService` stores shared layout information, such as the navbar height, used by pages to calculate the available minimum height.
+
+### Data
+
+Content is separated from the UI and lives in `src/app/data/`:
+
+- `technologies.json`
+- `work-experiences.json`
+- `education-experiences.json`
+- `links.json`
+
+The corresponding models live in `src/app/model/`. Dates are stored as ISO strings in JSON and converted to `Date` objects in the pages that consume them.
+
+### Public Assets
+
+Static assets live in `public/`, including:
+
+- SVG and ICO favicons
+- downloadable CV at `public/documents/cristian-esposito-cv.pdf`
+
+## Local Development
+
+Install dependencies:
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Start the development server:
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+The application will be available at:
 
-To build the project run:
+```text
+http://localhost:4200/
+```
+
+## Build
+
+Create a production build:
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build artifacts are generated in `dist/personal-website`.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+For a continuous development build:
 
 ```bash
-ng test
+npm run watch
 ```
 
-## Running end-to-end tests
+## Type Checking and Tests
 
-For end-to-end (e2e) testing, run:
+Type-check the application:
 
 ```bash
-ng e2e
+npx tsc -p tsconfig.app.json --noEmit
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Type-check the tests:
 
-## Additional Resources
+```bash
+npx tsc -p tsconfig.spec.json --noEmit
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Run unit tests:
+
+```bash
+npm test
+```
+
+Tests are not central to this project and should only be run when requested.

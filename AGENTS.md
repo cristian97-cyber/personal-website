@@ -6,6 +6,10 @@ This is an Angular 22 personal website. Application code lives in `src/app`, wit
 
 Structured content data lives in `src/app/data/`, with matching models in `src/app/model/`. Work experience data lives in `src/app/data/work-experiences.json` and uses ISO date strings in JSON; `src/app/pages/experience/experience.ts` maps those strings to `Date` objects for the `WorkExperienceModel`.
 
+## Documentation
+
+Keep `README.md` in English. It should describe the public application URL (`https://cristianesposito.dev/`), the site's content sections, the Angular architecture, reusable components, data files, styling/theme system, runtime requirements, and the main development/build/type-check commands. When project structure, routes, shared components, public assets, or runtime requirements change, update the README alongside the implementation.
+
 ## Build, Test, and Development Commands
 
 - `npm start`: runs the Angular dev server locally.
