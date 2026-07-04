@@ -111,3 +111,13 @@ button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    color-mix(in hsl, hsl(var(--primary)) 90%, hsl(var(--foreground))),
+    color-mix(in hsl, hsl(var(--secondary)) 90%, hsl(var(--foreground)))
+  );
+  background-clip: text !important;
+  color: transparent !important;
+}

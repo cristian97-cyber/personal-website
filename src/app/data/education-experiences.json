@@ -1,0 +1,52 @@
+[
+  {
+    "id": 2,
+    "courseTitle": "Master's Degree in Computer Science",
+    "universityName": "University of Salerno",
+    "startDate": "2020-03-02",
+    "endDate": "2022-12-15",
+    "location": "Salerno, Italy",
+    "numberOfExams": 12,
+    "degree": "110L/110",
+    "numberOfProjects": 7,
+    "thesis": {
+      "title": "Identifying cause-effect relationships in ECA rules using transfer learning techniques",
+      "description": "This thesis examines the privacy risks arising from unexpected interactions between IFTTT rules in the Internet of Things, proposing a method to identify cause-and-effect relationships among them.\nThe approach, based on ALBERT and supervised Transfer Learning, outperforms a semantic baseline in terms of precision, recall, and F1-score, while maintaining strong performance with multi-trigger and multi-action rules."
+    },
+    "focusAreas": [
+      "Cybersecurity",
+      "Data security",
+      "Cryptography",
+      "Machine learning",
+      "Cloud computing"
+    ],
+    "relevantCourses": []
+  },
+  {
+    "id": 1,
+    "courseTitle": "Bachelor's Degree in Computer Science",
+    "universityName": "University of Salerno",
+    "startDate": "2016-09-01",
+    "endDate": "2020-02-21",
+    "location": "Salerno, Italy",
+    "numberOfExams": 22,
+    "degree": "109/110",
+    "numberOfProjects": 3,
+    "thesis": {
+      "title": "Implementation of heuristics for data imputation algorithms",
+      "description": "This thesis investigates how the order of missing-value imputation affects the efficiency of a data imputation algorithm, considering accuracy, the number of imputed values, execution time, and memory consumption.\nIt introduces and extends an existing algorithm based on relaxed functional dependencies, then compares its performance across different imputation orders to identify potential improvements and future developments."
+    },
+    "focusAreas": [
+      "Software development",
+      "Software engineering",
+      "Object-oriented programming",
+      "Distributed programming",
+      "Mobile programming",
+      "Algorithms design",
+      "Operating systems",
+      "Networks",
+      "Database management"
+    ],
+    "relevantCourses": []
+  }
+]

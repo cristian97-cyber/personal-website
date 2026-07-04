@@ -1,0 +1,48 @@
+<button
+  type="button"
+  [class]="cardClass"
+  role="tab"
+  [id]="tabId"
+  [attr.aria-selected]="isActive"
+  [attr.aria-controls]="panelId"
+  (click)="select()"
+>
+  <span [class]="headerClass" aria-hidden="true"></span>
+
+  <span class="block px-5 pb-5">
+    <span class="-mt-6 flex items-start justify-between gap-4">
+      <span [class]="iconClass" aria-hidden="true">
+        <svg lucideGraduationCap class="size-6"></svg>
+      </span>
+    </span>
+
+    <span class="mt-5 block">
+      <span class="block text-lg font-bold leading-tight text-card-foreground">
+        {{ educationExperience.courseTitle }}
+      </span>
+
+      <span class="mt-2 block text-sm font-semibold text-primary">
+        {{ educationExperience.universityName }}
+      </span>
+    </span>
+
+    <span [class]="metadataClass">
+      <span class="flex items-center gap-2">
+        <svg lucideCalendar class="size-4 shrink-0" aria-hidden="true"></svg>
+        <span>
+          {{ educationExperience.startDate | date: 'MMM yyyy' }} -
+          @if (educationExperience.endDate) {
+            {{ educationExperience.endDate | date: 'MMM yyyy' }}
+          } @else {
+            Present
+          }
+        </span>
+      </span>
+
+      <span class="flex items-center gap-2">
+        <svg lucideMapPin class="size-4 shrink-0" aria-hidden="true"></svg>
+        <span>{{ educationExperience.location }}</span>
+      </span>
+    </span>
+  </span>
+</button>

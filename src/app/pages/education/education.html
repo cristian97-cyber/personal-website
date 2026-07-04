@@ -1,0 +1,57 @@
+<main
+  class="px-4 py-12 sm:px-10 lg:px-16 lg:py-18"
+  [ngStyle]="{
+    minHeight: pageMinHeight(),
+  }"
+>
+  <section class="mx-auto w-full max-w-6xl" aria-labelledby="education-heading">
+    <div class="flex flex-col items-center">
+      <app-chip>Academic Background</app-chip>
+
+      <h1
+        id="education-heading"
+        class="mt-4 text-center text-3xl font-black leading-tight tracking-normal text-foreground sm:text-4xl lg:text-5xl"
+      >
+        Educational <span class="text-gradient">Experience</span>
+      </h1>
+
+      <p
+        class="mt-4 max-w-3xl text-center text-md font-light leading-8 text-muted-foreground sm:text-lg"
+      >
+        A focused overview of my university path and academic growth
+      </p>
+    </div>
+
+    <div
+      class="mt-14 grid gap-6 sm:mt-16 lg:mt-20 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)]"
+    >
+      <div class="flex flex-col gap-4" role="tablist" aria-label="Education paths">
+        @for (educationExperience of educationExperiences; track educationExperience.id; let index = $index) {
+          <app-education-card
+            [educationExperience]="educationExperience"
+            [isActive]="isSelected(educationExperience)"
+            [tabId]="getTabId(educationExperience)"
+            [panelId]="getPanelId(educationExperience)"
+            [baseGradientClass]="getBaseGradientClass(index)"
+            (select$)="selectEducationExperience($event)"
+          />
+        }
+      </div>
+
+      <div class="h-px w-full bg-border lg:hidden" aria-hidden="true"></div>
+
+      <div>
+        @for (educationExperience of educationExperiences; track educationExperience.id) {
+          <div
+            role="tabpanel"
+            [id]="getPanelId(educationExperience)"
+            [attr.aria-labelledby]="getTabId(educationExperience)"
+            [hidden]="!isSelected(educationExperience)"
+          >
+            <app-education-details [educationExperience]="educationExperience" />
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</main>
