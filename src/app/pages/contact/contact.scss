@@ -1,0 +1,59 @@
+.contact-section {
+  position: relative;
+  padding-block: 0.25rem;
+}
+
+.contact-section-mark {
+  margin-bottom: 1.25rem;
+  display: block;
+  height: 0.25rem;
+  width: 4rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+}
+
+.contact-box {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-xl);
+  background: hsl(var(--card) / 0.72);
+  box-shadow: 0 1rem 2rem hsl(var(--foreground) / 0.04);
+  padding: 1rem 1.125rem;
+  color: hsl(var(--card-foreground));
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+
+  &:hover {
+    border-color: hsl(var(--primary) / 0.45);
+    background: hsl(var(--card) / 0.95);
+    box-shadow: 0 1.25rem 2.5rem hsl(var(--primary) / 0.1);
+    transform: translateY(-2px);
+  }
+
+  &:hover .contact-box-icon {
+    color: hsl(var(--primary-foreground));
+    transform: scale(1.04);
+  }
+}
+
+.contact-box-icon {
+  display: inline-flex;
+  height: 3rem;
+  width: 3rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  color: hsl(var(--primary-foreground));
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}

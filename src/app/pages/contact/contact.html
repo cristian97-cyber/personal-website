@@ -1,0 +1,96 @@
+<main
+  class="px-4 py-12 sm:px-10 lg:px-16 lg:py-18"
+  [ngStyle]="{
+    minHeight: pageMinHeight(),
+  }"
+>
+  <section class="mx-auto w-full max-w-6xl" aria-labelledby="contact-heading">
+    <div class="flex flex-col items-center">
+      <app-chip>Get in Touch</app-chip>
+
+      <h1
+        id="contact-heading"
+        class="mt-4 text-center text-3xl font-black leading-tight tracking-normal text-foreground sm:text-4xl lg:text-5xl"
+      >
+        Let's <span class="text-gradient">Connect</span>
+      </h1>
+
+      <p
+        class="mt-4 max-w-3xl text-center text-md font-light leading-8 text-muted-foreground sm:text-lg"
+      >
+        I'm always open to meaningful conversations about product-focused engineering, frontend
+        craft, and teams that care about building reliable, polished web experiences. If you're
+        hiring or exploring a collaboration, I'd be glad to hear from you.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-14 flex max-w-3xl flex-col items-center gap-12 md:mt-16">
+      <section
+        class="contact-section flex flex-col items-center text-center"
+        aria-labelledby="contact-information-heading"
+      >
+        <h2
+          id="contact-information-heading"
+          class="text-2xl font-bold leading-tight text-foreground"
+        >
+          Contact Information
+        </h2>
+
+        <p class="mt-3 max-w-sm text-sm leading-7 text-muted-foreground">
+          The best way to reach me for opportunities, interviews, or technical conversations.
+        </p>
+
+        <div class="flex flex-col gap-3">
+          @if (emailLink) {
+            <a
+              class="contact-box mt-6"
+              [href]="emailLink.url"
+              aria-label="Send an email to Cristian Esposito"
+            >
+              <span class="contact-box-icon" aria-hidden="true">
+                <svg lucideMail class="size-5"></svg>
+              </span>
+
+              <span class="flex min-w-0 flex-col text-left">
+                <span class="text-sm font-medium leading-none text-muted-foreground">Email</span>
+                <span class="mt-1 break-all text-base font-bold leading-tight text-card-foreground">
+                  {{ emailAddress }}
+                </span>
+              </span>
+            </a>
+          }
+          <div class="contact-box">
+            <div class="contact-box-icon" aria-hidden="true">
+              <svg lucideMapPin class="size-5"></svg>
+            </div>
+            <span class="flex min-w-0 flex-col text-left">
+              <span class="text-sm font-medium leading-none text-muted-foreground">Location</span>
+              <span class="mt-1 break-all text-base font-bold leading-tight text-card-foreground">
+                Italy
+              </span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="contact-section flex flex-col items-center text-center"
+        aria-labelledby="follow-me-heading"
+      >
+        <h2 id="follow-me-heading" class="text-2xl font-bold leading-tight text-foreground">
+          Follow Me
+        </h2>
+
+        <p class="mt-3 max-w-sm text-sm leading-7 text-muted-foreground">
+          Explore my professional profile and code projects through these channels.
+        </p>
+
+        <div class="mt-6 flex justify-center gap-3" aria-label="Social links">
+          @for (link of links; track link.name) {
+            <app-link-icon [link]="link"></app-link-icon>
+          }
+        </div>
+      </section>
+    </div>
+  </section>
+</main>

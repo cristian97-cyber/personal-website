@@ -23,4 +23,8 @@ export const routes: Routes = [
     path: AppUrlEnum.Education,
     loadComponent: () => import('./pages/education/education').then((m) => m.Education),
   },
+  {
+    path: AppUrlEnum.Contact,
+    loadComponent: () => import('./pages/contact/contact').then((m) => m.Contact),
+  },
 ];
