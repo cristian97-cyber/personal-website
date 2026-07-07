@@ -44,7 +44,7 @@ export class Skills implements OnInit {
         bgClass: 'bg-[linear-gradient(135deg,var(--color-fuchsia-600),var(--color-fuchsia-400))]',
       },
       {
-        name: 'Language',
+        name: 'Languages',
         icon: 'braces',
         type: 'language',
         technologies: this.getTechnologiesByType('language'),

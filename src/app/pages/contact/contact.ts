@@ -5,11 +5,11 @@ import { LinkIcon } from '../../components/link-icon/link-icon';
 import linksData from '../../data/links.json';
 import { LinkModel } from '../../model/link.model';
 import { LayoutService } from '../../services/layout.service';
-import { LucideBriefcase, LucideMail, LucideMapPin } from '@lucide/angular';
+import { LucideMail, LucideMapPin } from '@lucide/angular';
 
 @Component({
   selector: 'app-contact',
-  imports: [NgStyle, AppChip, LinkIcon, LucideBriefcase, LucideMail, LucideMapPin],
+  imports: [NgStyle, AppChip, LinkIcon, LucideMail, LucideMapPin],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
